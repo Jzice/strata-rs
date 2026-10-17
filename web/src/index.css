@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  @apply bg-ink-900 text-gray-100 font-sans antialiased;
+  background-image: radial-gradient(1100px 620px at 12% -8%, rgba(99, 102, 241, 0.18), transparent 60%),
+    radial-gradient(900px 520px at 92% 6%, rgba(139, 92, 246, 0.16), transparent 62%);
+  background-attachment: fixed;
+}
+
+@layer components {
+  /* Frosted panel: the base surface for cards, sidebar and top bar. */
+  .glass {
+    @apply border border-white/10 bg-white/[0.045] backdrop-blur-xl;
+  }
+
+  .glass-strong {
+    @apply border border-white/10 bg-ink-800/70 backdrop-blur-2xl;
+  }
+
+  .gradient-text {
+    @apply bg-brand-gradient bg-clip-text text-transparent;
+  }
+
+  .ring-focus {
+    @apply outline-none ring-2 ring-brand-500/60 ring-offset-0;
+  }
+}
+
+@layer utilities {
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(148, 163, 184, 0.35) transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background-color: rgba(148, 163, 184, 0.3);
+    border-radius: 9999px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+}
+
+/* Streaming caret that blinks at the end of a partial answer. */
+.caret::after {
+  content: "";
+  display: inline-block;
+  width: 0.5ch;
+  height: 1.05em;
+  margin-left: 2px;
+  vertical-align: text-bottom;
+  background: linear-gradient(180deg, #8b5cf6, #6366f1);
+  border-radius: 2px;
+  animation: pulse-soft 1.1s ease-in-out infinite;
+}

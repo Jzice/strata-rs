@@ -1,0 +1,13 @@
+/target
+**/target
+node_modules
+web/node_modules
+web/dist
+*.gguf
+*.bin
+models/
+.DS_Store
+.env
+server.log
+server.err
+.codebuddy/

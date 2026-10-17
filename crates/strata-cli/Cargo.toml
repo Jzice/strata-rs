@@ -1,0 +1,39 @@
+[package]
+name = "strata"
+description = "Strata command line: chat, benchmark and serve subcommands"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[[bin]]
+name = "strata"
+path = "src/main.rs"
+
+[lints]
+workspace = true
+
+[dependencies]
+strata-core = { workspace = true }
+strata-gguf = { workspace = true }
+strata-tokenizer = { workspace = true }
+strata-backend-cpu = { workspace = true }
+clap.workspace = true
+strata-server = { workspace = true }
+strata-backend-wgpu = { workspace = true, optional = true }
+tokio.workspace = true
+tracing.workspace = true
+tracing-subscriber.workspace = true
+serde_json.workspace = true
+anyhow.workspace = true
+
+[features]
+default = []
+# WGSL kernels over Vulkan / D3D12 / Metal. Off by default so a machine
+# without a GPU driver still builds the CLI.
+gpu = ["strata-backend-wgpu/gpu"]
+
+[dev-dependencies]
+serde.workspace = true
+half.workspace = true

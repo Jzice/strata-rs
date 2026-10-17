@@ -1,0 +1,24 @@
+[package]
+name = "strata-core"
+description = "Strata engine core: model families (qwen4exp / qwen35moe), layers, sampling, sessions and the ComputeBackend trait"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[lints]
+workspace = true
+
+[dependencies]
+strata-gguf = { workspace = true }
+strata-tokenizer = { workspace = true }
+thiserror.workspace = true
+tracing.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+rayon.workspace = true
+half.workspace = true
+
+[dev-dependencies]
+approx = "0.5"

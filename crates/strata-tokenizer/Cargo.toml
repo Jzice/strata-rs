@@ -1,0 +1,22 @@
+[package]
+name = "strata-tokenizer"
+description = "BPE tokenizer read from GGUF metadata plus chat-template rendering"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[lints]
+workspace = true
+
+[dependencies]
+thiserror.workspace = true
+tracing.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+minijinja.workspace = true
+strata-gguf = { workspace = true }
+# The qwen35 pre-tokenizer pattern uses a negative lookahead, which the
+# standard `regex` crate does not support.
+fancy-regex = "0.19"
